@@ -155,17 +155,17 @@ nav a:hover{
 
 /*Portfolio*/
 
-#portfolio{
-    height:90vh;
+.portfolio{
+    height:70vh;
     margin: 0;
     padding:0;
 }
 
-#portfolio h1{
+.portfolio h1{
     height: 20%;
 }
 
-#portfolio div{
+.portfolio div{
     height: 70%;
 }
 
