@@ -1,116 +1,180 @@
 <!DOCTYPE html>
-<html lang="">
+<html>
+    <!--Head -->
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Bernard Guiang | Portfolio Website</title>
-        <link rel="stylesheet" href="./css/style.css">
+
+        <!-- JQUERY NEEDS TO BE LINKED BEFORE BOOTSTRAP JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <!-- Link your css file after bootstrap css so it is applied last -->
+        <link rel="stylesheet" href="css/style.css">
+
+        <script>
+            
+            /*var showcase = "#logo";
+            var about = "#aboutLink";
+            var portfolio = "#portfolioLink";
+            var contact = "#contactLink";
+            var sectionLinkArray = [showcase, about, portfolio, contact];
+            var sectionArrayLength = sectionLinkArray.length;
+            var currentSection = 0;
+            
+            $(document).on('keydown', function(e)
+                {
+                    if (e.keyCode == '38') {
+                        if(currentSection > 0)
+                        {
+                            currentSection -= 1;
+                            $(sectionLinkArray[currentSection]).click();
+                        }
+                    }
+                    else if (e.keyCode == '40') {
+                        if(currentSection < sectionArrayLength - 1)
+                        {
+                            currentSection += 1;
+                            $(sectionLinkArray[currentSection]).click();
+                        }
+                    }
+                    else if (e.keyCode == '37') {
+                       // left arrow
+                    }
+                    else if (e.keyCode == '39') {
+                       // right arrow
+                    }
+                }
+            );*/
+            
+            
+            $(document).ready(function(){
+
+                //Smooth Scrolling Start
+                $("a").on('click', function(event) {
+                    if (this.hash !== "") {
+                        event.preventDefault();
+                        var hash = this.hash;
+                        $('html, body').animate({
+                            scrollTop: $(hash).offset().top
+                        }, 800, function(){
+                            window.location.hash = hash;
+                        });
+                    }
+                });
+                //Smooth Scrolling End
+
+
+            });
+
+            /* Minimized dropdown menu when clicking outside */
+            $(document).on('click', function(){
+                $('.collapse').collapse('hide');
+            });
+            
+            
+        </script>
     </head>
 
+    <!--Body -->
     <body>
-<!--Home Anchor-->
-        <a name="home" class="anchor"></a>
-        <header>
+        <!-- Fixed NavBar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
-                <a href="#home">
-                    <div id="logo">
-                        <h1><span class="highlight">B</span>G</h1>
-                    </div>
-                </a>
-                <nav>
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                <div class="navbar-header navbar-left">
+                    <a id="logo" class="navbar-brand" href="#home">
+                        Bernard Guiang
+                    </a>
+                    <button type="button" 
+                            class="navbar-toggle collapsed" 
+                            data-toggle="collapse" 
+                            data-target="#collapsing-menu"
+                            >
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <nav class="collapse navbar-collapse" id="collapsing-menu">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href="#about" id="aboutLink">About</a></li>
+                        <li><a href="#portfolio" id="portfolioLink">Portfolio</a></li>
+                        <li><a href="#contact" id="contactLink">Contact</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="https://github.com/bguiang" target="_blank">GithHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/bernard-guiang/" target="_blank">LinkedIn</a></li>
                     </ul>
                 </nav>
             </div>
-        </header>
-        
-        
-<!--Showcase-->
-        <section id="showcase">
-            <div class="container">
+        </nav>
+
+        <a id="home"></a>
+        <div class="showcase center-content">
+            <div>
                 <h1>Bernard Guiang</h1>
                 <h2>Software Developer</h2>
             </div>
-        </section>
- 
-        
-<!--About Anchor-->
-        <a name="about" class="anchor"></a>       
-        <section id="about">
-            <nav class="container">
-                <h1 class="title">About</h1>
-                <p>
-                  My name is Bernard Guiang and I am currently an undergrad at Arizona State University. I'm studying Computer Science and Biochemistry.
-                </p>
-            </nav>
-        </section>
-                
-                
-                
-<!--Portfolio Anchor-->
-        <a name="portfolio" class="anchor"></a>
-        <section class="portfolio">
-            <h1 class="title">Portfolio</h1>
-            
+        </div>
+
+        <!-- Main Content -->
+        <a id="about"></a>
+        <div class="about center-content">
             <div class="container">
-                <div class="one-half project-holder">
-                    <div class="project-image-holder">
-                        <img src="./img/epifinder.png">
+                <h2>About</h2>
+                <br>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <p>I am a recent graduate from Arizona State University majoring in Computer Science and Biochemistry. I'm currently working as a software developer at <a href="#">EpiFinder, Inc.</a> I focus mostly on Java development on both back-end with Spring MVC and front-end with Android although I am always open to learning new things. I'm currently learning a little bit of web development with HTML, CSS, and Javascript.</p>
                     </div>
-                    <div class="project-description-holder">
-                        <h3>Epifinder Diagnosis Android App</h3>
-                        <p>Epifinder is a tool to be used by neurologists for a more accurate diagnosis of epilepsy. I am currently working with a group of students to finish the Android version of the application</p>
-                    </div>
-                </div>
-                
-                <div class="one-half project-holder">
-                    <div class="project-image-holder">
-                        <img src="./img/portfolio_website.png">
-                    </div>
-                    <div class="project-description-holder">
-                        <h3>Portfolio Website</h3>
-                        <p>This my first website made using HTML and CSS. Visit my github page on the Contacs section to view the code.
-                        </p>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 center-content">
+                        <img id="profile_img" src="img/me_3.jpg">
                     </div>
                 </div>
             </div>
-        </section>
-        <section class = portfolio>
+
+
+        </div>
+
+        <!-- Portfolio -->
+        <a id="portfolio"></a>
+        <div class="portfolio center-content">
             <div class="container">
-                <div class="one-half project-holder">
-                    <div class="project-image-holder">
-                        <a href="./Unity/game.html">
-                            <img src="./Unity/TemplateData/favicon.ico">
-                        </a>
-                    </div>
-                    <div class="project-description-holder">
-                        <h3>Roll a Ball</h3>
-                        <p>Just testing Unity WebGL. Follows Unity's <a href="https://unity3d.com/learn/tutorials/projects/roll-ball-tutorial">Roll-a-Ball tutorial</a></p>
-                    </div>
-                </div>  
+                <h2>Portfolio</h2>
             </div>
-        </section>    
-       
-<!--Contact Anchor-->
+        </div>
 
-        <a name="contact" class="anchor"></a>
-        <footer>
-            <section class="container">
-                <div class="one-half">
-                    <div class="center-vertical">
-                        <a href="https://github.com/bguiang"><img class="contact-logo" src="img/GitHub-Mark-120px-plus.png"></a>
+        <!-- Contact -->
+        <a id="contact"></a>
+        <div class="contact center-content">
+            <div class="container">
+                <h2>Contact</h2>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="container">
+                <div class="row" style="padding-top:50px">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 center-content" >
+                        <a href="https://github.com/bguiang" target="_blank"><img class="link-logo" src="img/GitHub-Mark-120px-plus.png"></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 center-content">
+                        <a href="https://www.linkedin.com/in/bernard-guiang/" target="_blank"><img class="link-logo" src="img/Logo-2C-121px-R.png"></a>
                     </div>
                 </div>
-                <div class="one-half">
-                    <div class="center-vertical">
-                        <a href="https://www.linkedin.com/in/bernard-guiang/"><img class="contact-logo" src="img/Logo-2C-121px-R.png" ></a>
-                    </div>
-                </div>
-            </section>
-        </footer>
-
+            </div>
+        </div>
     </body>
+
 </html>
